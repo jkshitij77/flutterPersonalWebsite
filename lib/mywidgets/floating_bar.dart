@@ -1,6 +1,8 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:myflutterwebsite/utils/responsive_web.dart';
+import 'package:myflutterwebsite/screens/bucket_list_page.dart';
+import 'package:get/get.dart';
 
 class FloatingBarMidWayThroughPage extends StatefulWidget {
   final screenSize;
@@ -25,6 +27,8 @@ class _FloatingBarMidWayThroughPageState
     Icons.people,
   ];
 
+  List<String> routes = ['/', BucketListPage.bucketListRoute, '/'];
+
   List<Widget> getCardElements() {
     rowElements.clear();
 
@@ -35,7 +39,10 @@ class _FloatingBarMidWayThroughPageState
       Widget bro = InkWell(
         splashColor: Colors.transparent,
         hoverColor: Colors.transparent,
-        onTap: () {},
+        onTap: () {
+          if(items[i]=='Bucket List')
+            Get.to(BucketListPage());
+        },
         onHover: (hovering) {
           setState(() {
             _isHovering[i] = hovering;
