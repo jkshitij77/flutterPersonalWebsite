@@ -1,8 +1,10 @@
+import 'dart:io';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:myflutterwebsite/utils/responsive_web.dart';
 import 'package:myflutterwebsite/screens/bucket_list_page.dart';
 import 'package:get/get.dart';
+import 'package:native_pdf_renderer/native_pdf_renderer.dart';
 
 class FloatingBarMidWayThroughPage extends StatefulWidget {
   final screenSize;
@@ -39,9 +41,13 @@ class _FloatingBarMidWayThroughPageState
       Widget bro = InkWell(
         splashColor: Colors.transparent,
         hoverColor: Colors.transparent,
-        onTap: () {
-          if(items[i]=='Bucket List')
+        onTap: () async {
+          if (items[i] == 'Bucket List')
             Get.to(BucketListPage());
+          else if (items[i] == 'Professional') {
+            print('pdf');
+            await PdfDocument.openAsset('Assets/Kshitij Resume Jefferies.pdf');
+          }
         },
         onHover: (hovering) {
           setState(() {
@@ -88,7 +94,48 @@ class _FloatingBarMidWayThroughPageState
         ),
         child: ResponsiveWidget.isSmallScreen(context)
             ? Column(
-                children: [],
+                children: [
+                  ...Iterable<int>.generate(items.length).map((int pageIndex) =>
+                      Padding(
+                        padding:
+                            EdgeInsets.only(top: widget.screenSize.height / 80),
+                        child: Card(
+                          elevation: 4,
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                                top: widget.screenSize.height / 45,
+                                bottom: widget.screenSize.height / 45,
+                                left: widget.screenSize.width / 20),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  icons[pageIndex],
+                                  color: Theme.of(context).iconTheme.color,
+                                ),
+                                SizedBox(width: widget.screenSize.width / 20),
+                                InkWell(
+                                  splashColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  onTap: () {
+                                    if (items[pageIndex] == 'Bucket List')
+                                      Get.to(BucketListPage());
+                                  },
+                                  child: Text(
+                                    items[pageIndex],
+                                    style: TextStyle(
+                                        color: Theme.of(context)
+                                            .primaryTextTheme
+                                            .button
+                                            .color,
+                                        fontSize: 16),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ))
+                ],
               )
             : Card(
                 elevation: 5,
@@ -107,3 +154,10 @@ class _FloatingBarMidWayThroughPageState
     );
   }
 }
+
+//TODO: Render my resume with the resume button
+//  Show my achievements and shit
+//  final document = await PdfDocument.openAsset('assets/sample.pdf');
+//  final page = await document.getPage(1);
+//  final pageImage = await page.render(width: page.width, height: page.height);
+//  await page.close();

@@ -4,13 +4,13 @@ import 'package:myflutterwebsite/screens/welcome_screen.dart';
 
 class Routes {
   static String getInitialRoute() {
-    return '/';
+    return WelcomeScreen.welcomeScreenRoute;
   }
 
   static List<GetPage> getRoutes() {
     return [
       GetPage(
-        name: '/',
+        name: WelcomeScreen.welcomeScreenRoute,
         page: () => WelcomeScreen(),
       ),
       GetPage(

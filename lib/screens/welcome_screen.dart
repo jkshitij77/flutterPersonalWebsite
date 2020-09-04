@@ -4,6 +4,8 @@ import 'dart:async';
 import 'package:get/get.dart';
 
 class WelcomeScreen extends StatefulWidget {
+  static final welcomeScreenRoute = '/';
+
   @override
   _WelcomeScreenState createState() => _WelcomeScreenState();
 }
@@ -31,41 +33,42 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         child: Container(
 //          color: Colors.blueAccent,
           child: Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 40,
-                vertical: 20,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(
-                        "KSHITIJ",
-                        style: TextStyle(
-                            fontSize: 80,
-                            color: Colors.white,
-                            fontFamily: 'Lobster'),
+            padding: EdgeInsets.symmetric(
+              horizontal: 40,
+              vertical: 20,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      "KSHITIJ",
+                      style: TextStyle(
+                          fontSize: 80,
+                          color: Colors.white,
+                          fontFamily: 'Lobster'),
 //                            color: Colors.blueGrey[100],
 //                            fontSize: 20,
 //                            fontFamily: 'Montserrat',
 //                            fontWeight: FontWeight.w400,
 //                            letterSpacing: 3,
-                      ),
-                      Text(
-                        "JAIN",
-                        style: TextStyle(
-                            fontSize: 80,
-                            color: Colors.white,
-                            fontFamily: 'Lobster'),
-                      ),
-                    ],
-                  ),
-                  Text("Contact me"),
-                ],
-              )),
+                    ),
+                    Text(
+                      "JAIN",
+                      style: TextStyle(
+                          fontSize: 80,
+                          color: Colors.white,
+                          fontFamily: 'Lobster'),
+                    ),
+                  ],
+                ),
+                Text("Contact me"),
+              ],
+            ),
+          ),
         ),
       ),
       body: Stack(
@@ -81,7 +84,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               ),
             ),
           ),
-          FloatingBarMidWayThroughPage(screenSize: screenSize,)
+          FloatingBarMidWayThroughPage(
+            screenSize: screenSize,
+          )
         ],
       ),
     );
