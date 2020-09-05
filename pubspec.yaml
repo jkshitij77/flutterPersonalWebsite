@@ -31,6 +31,7 @@ dependencies:
   get: ^3.8.0
   animated_text: ^1.0.2
   native_pdf_renderer: ^2.3.2
+  carousel_slider: ^2.2.1
 
 dev_dependencies:
   flutter_test:
@@ -51,6 +52,15 @@ flutter:
     - family: Lobster
       fonts:
         - asset: assets/Lobster/Lobster-Regular.ttf
+    - family: Electrolize
+      fonts:
+        - asset: assets/Electrolize/Electrolize-Regular.ttf
+    - family: Montserrat
+      fonts:
+           - asset: assets/Montserrat/Montserrat-Regular.ttf
+    - family: Rubik
+      fonts:
+            - asset: Assets/Rubik/Rubik-VariableFont_wght.ttf
 
   assets:
     - Assets/img.jpeg

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text/animated_text.dart';
+import 'package:myflutterwebsite/mywidgets/cool_carousel.dart';
 
 class BucketListPage extends StatelessWidget {
   static final String bucketListRoute = "/bucketListRoute";

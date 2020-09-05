@@ -1,6 +1,6 @@
-import 'dart:io';
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:myflutterwebsite/screens/professional.dart';
 import 'package:myflutterwebsite/utils/responsive_web.dart';
 import 'package:myflutterwebsite/screens/bucket_list_page.dart';
 import 'package:get/get.dart';
@@ -29,7 +29,11 @@ class _FloatingBarMidWayThroughPageState
     Icons.people,
   ];
 
-  List<String> routes = ['/', BucketListPage.bucketListRoute, '/'];
+  List<String> routes = [
+    ProfessionalPage.professionalPageRoute,
+    BucketListPage.bucketListRoute,
+    '/'
+  ];
 
   List<Widget> getCardElements() {
     rowElements.clear();
@@ -46,18 +50,25 @@ class _FloatingBarMidWayThroughPageState
             Get.to(BucketListPage());
           else if (items[i] == 'Professional') {
             print('pdf');
-            await PdfDocument.openAsset('Assets/Kshitij Resume Jefferies.pdf');
+            Get.to(ProfessionalPage());
+            // await PdfDocument.openAsset('Assets/Kshitij Resume Jefferies.pdf');
           }
         },
         onHover: (hovering) {
           setState(() {
+            print(hovering);
             _isHovering[i] = hovering;
-//            hovering ? _isHovering[i] = true : _isHovering[i] = false;
           });
         },
         child: Text(
           items[i],
-          style: TextStyle(fontSize: 16, letterSpacing: 1.5),
+          style: TextStyle(
+            // TODO: Animate the change
+            decoration: _isHovering[i]? TextDecoration.underline : null,
+            fontSize: _isHovering[i]? 20: 16,
+            letterSpacing: _isHovering[i]? 2: 1.5,
+            color: Colors.black,
+          ),
         ),
       );
 
@@ -84,7 +95,7 @@ class _FloatingBarMidWayThroughPageState
     return Center(
       child: Padding(
         padding: EdgeInsets.only(
-          top: widget.screenSize.height * 0.40,
+          top: widget.screenSize.height * 0.48,
           left: ResponsiveWidget.isSmallScreen(context)
               ? widget.screenSize.width / 12
               : widget.screenSize.width / 5,

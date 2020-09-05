@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:myflutterwebsite/mywidgets/cool_carousel.dart';
 import 'package:myflutterwebsite/mywidgets/floating_bar.dart';
-import 'dart:async';
-import 'package:get/get.dart';
+import 'package:myflutterwebsite/mywidgets/top_bar.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static final welcomeScreenRoute = '/';
@@ -30,65 +30,52 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       extendBodyBehindAppBar: true,
       appBar: PreferredSize(
         preferredSize: Size(screenSize.width, 1000),
-        child: Container(
-//          color: Colors.blueAccent,
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: 40,
-              vertical: 20,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(
-                      "KSHITIJ",
-                      style: TextStyle(
-                          fontSize: 80,
-                          color: Colors.white,
-                          fontFamily: 'Lobster'),
-//                            color: Colors.blueGrey[100],
-//                            fontSize: 20,
-//                            fontFamily: 'Montserrat',
-//                            fontWeight: FontWeight.w400,
-//                            letterSpacing: 3,
-                    ),
-                    Text(
-                      "JAIN",
-                      style: TextStyle(
-                          fontSize: 80,
-                          color: Colors.white,
-                          fontFamily: 'Lobster'),
-                    ),
-                  ],
-                ),
-                Text("Contact me"),
-              ],
-            ),
-          ),
+        child: TopBar(
+          screenSize: screenSize,
         ),
       ),
-      body: Stack(
-        children: [
-          Container(
-            child: SizedBox(
-              height: screenSize.height * 0.45,
-              width: screenSize.width,
-              child: Image.asset(
-                'Assets/img.jpeg',
-                fit: BoxFit.cover,
-                alignment: Alignment.center,
-              ),
-            ),
-          ),
-          FloatingBarMidWayThroughPage(
-            screenSize: screenSize,
-          )
-        ],
+      body: SingleChildScrollView(
+        physics: ClampingScrollPhysics(),
+        child: Column(
+          children: [
+            Stack(
+              children: [
+                Container(
+                  child: SizedBox(
+                    height: screenSize.height * 0.52,
+                    width: screenSize.width,
+                    child: Image.asset(
+                      // TODO: Change the image
+                      'assets/bg.jpeg',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                Column(
+                  children: [
+                    FloatingBarMidWayThroughPage(
+                      screenSize: screenSize,
+                    ),
+                    Container(
+                      child: Column(
+                        children: [
+                          // TODO: Featured
+                          // FeaturedHeading(
+                          //   screenSize: screenSize,
+                          // ),
+                          // FeaturedTiles(screenSize: screenSize)
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
 }
+
+// TODO: WORK resume interests and bucket list

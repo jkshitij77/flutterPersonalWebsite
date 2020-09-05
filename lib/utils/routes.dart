@@ -1,5 +1,6 @@
 import 'package:get/route_manager.dart';
 import 'package:myflutterwebsite/screens/bucket_list_page.dart';
+import 'package:myflutterwebsite/screens/professional.dart';
 import 'package:myflutterwebsite/screens/welcome_screen.dart';
 
 class Routes {
@@ -16,6 +17,10 @@ class Routes {
       GetPage(
         name: BucketListPage.bucketListRoute,
         page: () => BucketListPage(),
+      ),
+      GetPage(
+        name: ProfessionalPage.professionalPageRoute,
+        page: () => ProfessionalPage(),
       )
     ];
   }
