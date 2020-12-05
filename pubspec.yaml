@@ -63,11 +63,6 @@ flutter:
             - asset: Assets/Rubik/Rubik-VariableFont_wght.ttf
 
   assets:
-    - Assets/img.jpeg
-    - Assets/img2.jpeg
-    - Assets/slide1.jpg
-    - Assets/slide2.jpg
-    - Assets/slide3.jpg
     - Assets/
   # To add assets to your application, add an assets section, like this:
   # assets:

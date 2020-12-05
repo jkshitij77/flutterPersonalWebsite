@@ -1,10 +1,11 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:myflutterwebsite/screens/professional.dart';
+import 'package:myflutterwebsite/screens/temporary.dart';
 import 'package:myflutterwebsite/utils/responsive_web.dart';
 import 'package:myflutterwebsite/screens/bucket_list_page.dart';
 import 'package:get/get.dart';
-import 'package:native_pdf_renderer/native_pdf_renderer.dart';
+// import 'package:native_pdf_renderer/native_pdf_renderer.dart';
 
 class FloatingBarMidWayThroughPage extends StatefulWidget {
   final screenSize;
@@ -48,9 +49,11 @@ class _FloatingBarMidWayThroughPageState
         onTap: () async {
           if (items[i] == 'Bucket List')
             Get.to(BucketListPage());
-          else if (items[i] == 'Professional') {
-            print('pdf');
-            Get.to(ProfessionalPage());
+          // TODO: else if (items[i] == 'Professional') {
+          else {
+            Get.to(TemporaryPage());
+            // TODO: Change this to professional
+            // Get.to(ProfessionalPage());
             // await PdfDocument.openAsset('Assets/Kshitij Resume Jefferies.pdf');
           }
         },
@@ -64,9 +67,9 @@ class _FloatingBarMidWayThroughPageState
           items[i],
           style: TextStyle(
             //TODO: Animate some changes here?
-            decoration: _isHovering[i]? TextDecoration.underline : null,
+            decoration: _isHovering[i] ? TextDecoration.underline : null,
             fontSize: 20,
-            letterSpacing:  1.5,
+            letterSpacing: 1.5,
             color: Colors.black,
           ),
         ),
@@ -129,7 +132,9 @@ class _FloatingBarMidWayThroughPageState
                                   hoverColor: Colors.transparent,
                                   onTap: () {
                                     if (items[pageIndex] == 'Bucket List')
-                                      Get.to(BucketListPage(screenSize: widget.screenSize,));
+                                      Get.to(BucketListPage(
+                                        screenSize: widget.screenSize,
+                                      ));
                                   },
                                   child: Text(
                                     items[pageIndex],

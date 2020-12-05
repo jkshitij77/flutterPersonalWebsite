@@ -2,12 +2,11 @@ import 'package:get/route_manager.dart';
 import 'package:myflutterwebsite/screens/bucket_list_page.dart';
 import 'package:myflutterwebsite/screens/professional.dart';
 import 'package:myflutterwebsite/screens/welcome_screen.dart';
+import 'package:myflutterwebsite/screens/temporary.dart';
 
 class Routes {
   static String getInitialRoute() {
-    // TODO: Change this
-    // return WelcomeScreen.welcomeScreenRoute;
-    return BucketListPage.bucketListRoute;
+    return WelcomeScreen.welcomeScreenRoute;
   }
 
   static List<GetPage> getRoutes() {
@@ -22,8 +21,13 @@ class Routes {
       ),
       GetPage(
         name: ProfessionalPage.professionalPageRoute,
+        // page: () => TemporaryPage(),
         page: () => ProfessionalPage(),
-      )
+      ),
+      GetPage(
+        name: TemporaryPage.temporaryRoute,
+        page: () => TemporaryPage(),
+      ),
     ];
   }
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:myflutterwebsite/screens/temporary.dart';
+import 'package:get/get.dart';
 
 class TopBar extends StatefulWidget {
   final screenSize;
@@ -46,7 +48,9 @@ class _TopBarState extends State<TopBar> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Get.to(TemporaryPage());
+              },
               onHover: (hovering) {
                 setState(() {
                   hovering ? isHovering[0] = true : isHovering[0] = false;
@@ -81,7 +85,9 @@ class _TopBarState extends State<TopBar> {
               ),
             ),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Get.to(TemporaryPage());
+              },
               onHover: (hovering) {
                 setState(() {
                   hovering ? isHovering[1] = true : isHovering[1] = false;
