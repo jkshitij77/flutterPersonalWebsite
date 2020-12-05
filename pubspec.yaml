@@ -31,7 +31,7 @@ dependencies:
   get: ^3.8.0
   animated_text: ^1.0.2
   native_pdf_renderer: ^2.3.2
-  carousel_slider: ^2.2.1
+  carousel_slider: ^2.3.1
 
 dev_dependencies:
   flutter_test:
@@ -65,6 +65,9 @@ flutter:
   assets:
     - Assets/img.jpeg
     - Assets/img2.jpeg
+    - Assets/slide1.jpg
+    - Assets/slide2.jpg
+    - Assets/slide3.jpg
     - Assets/
   # To add assets to your application, add an assets section, like this:
   # assets:

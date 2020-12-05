@@ -11,11 +11,31 @@ class TopBar extends StatefulWidget {
 
 class _TopBarState extends State<TopBar> {
   final List isHovering = [false, false];
+  ScrollController _scrollController;
+  double _scrollPosition = 0;
+  double _opacity = 0;
+
+  _scrollListener() {
+    setState(() {
+      _scrollPosition = _scrollController.position.pixels;
+    });
+  }
+
+  @override
+  void initState() {
+    _scrollController = ScrollController();
+    _scrollController.addListener(_scrollListener);
+    // TODO: Is the above line fine?
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
+    var screenSize = MediaQuery.of(context).size;
+    _opacity = _scrollPosition < screenSize.height * 0.40
+        ? 1
+        : 0;
     return Container(
-//          color: Colors.blueAccent,
       child: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: 40,
@@ -26,10 +46,10 @@ class _TopBarState extends State<TopBar> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             InkWell(
-              onTap: (){},
-              onHover: (hovering){
+              onTap: () {},
+              onHover: (hovering) {
                 setState(() {
-                  hovering? isHovering[0] = true:  isHovering[0] = false;
+                  hovering ? isHovering[0] = true : isHovering[0] = false;
                 });
               },
               child: Column(
@@ -37,26 +57,23 @@ class _TopBarState extends State<TopBar> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    "KSHITIJ",
-                    style: TextStyle(
-                      fontSize: widget.screenSize.height * 0.10,
-                      fontWeight: FontWeight.bold,
-                      color: isHovering[0]? Color(0xFF243949) : Color(0xFF445969),
-                      fontFamily: 'Electrolize',
-                      // fontFamily: 'Lobster',
-//                            color: Colors.blueGrey[100],
-//                            fontSize: 20,
-//                            fontFamily: 'Montserrat',
-//                            fontWeight: FontWeight.w400,
-//                            letterSpacing: 3,
+                      "KSHITIJ",
+                      style: TextStyle(
+                        fontSize: widget.screenSize.height * 0.10,
+                        fontWeight: FontWeight.bold,
+                        color: isHovering[0]
+                            ? Color(0xFF243949)
+                            : Color(0xFF445969),
+                        fontFamily: 'Electrolize',
+                      ),
                     ),
-                  ),
                   Text(
                     "JAIN",
                     style: TextStyle(
                       fontSize: widget.screenSize.height * 0.10,
                       fontWeight: FontWeight.bold,
-                      color: isHovering[0]? Color(0xFF243949) : Color(0xFF445969),
+                      color:
+                          isHovering[0] ? Color(0xFF243949) : Color(0xFF445969),
                       fontFamily: 'Electrolize',
                     ),
                   ),
@@ -64,10 +81,10 @@ class _TopBarState extends State<TopBar> {
               ),
             ),
             InkWell(
-              onTap: (){},
-              onHover: (hovering){
+              onTap: () {},
+              onHover: (hovering) {
                 setState(() {
-                  hovering? isHovering[1] = true:  isHovering[1] = false;
+                  hovering ? isHovering[1] = true : isHovering[1] = false;
                 });
               },
               child: Text(
@@ -76,7 +93,7 @@ class _TopBarState extends State<TopBar> {
                   fontSize: widget.screenSize.height * .04,
                   fontWeight: FontWeight.bold,
                   fontFamily: 'Electrolize',
-                  color: isHovering[1]? Color(0xFF243949) : Color(0xFF445969),
+                  color: isHovering[1] ? Color(0xFF243949) : Color(0xFF445969),
                 ),
               ),
             ),

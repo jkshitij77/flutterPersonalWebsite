@@ -63,10 +63,10 @@ class _FloatingBarMidWayThroughPageState
         child: Text(
           items[i],
           style: TextStyle(
-            // TODO: Animate the change
+            //TODO: Animate some changes here?
             decoration: _isHovering[i]? TextDecoration.underline : null,
-            fontSize: _isHovering[i]? 20: 16,
-            letterSpacing: _isHovering[i]? 2: 1.5,
+            fontSize: 20,
+            letterSpacing:  1.5,
             color: Colors.black,
           ),
         ),
@@ -129,7 +129,7 @@ class _FloatingBarMidWayThroughPageState
                                   hoverColor: Colors.transparent,
                                   onTap: () {
                                     if (items[pageIndex] == 'Bucket List')
-                                      Get.to(BucketListPage());
+                                      Get.to(BucketListPage(screenSize: widget.screenSize,));
                                   },
                                   child: Text(
                                     items[pageIndex],
@@ -166,7 +166,7 @@ class _FloatingBarMidWayThroughPageState
   }
 }
 
-//TODO: Render my resume with the resume button
+// TODO: Render my resume with the resume button
 //  Show my achievements and shit
 //  final document = await PdfDocument.openAsset('assets/sample.pdf');
 //  final page = await document.getPage(1);

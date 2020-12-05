@@ -59,6 +59,21 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     Container(
                       child: Column(
                         children: [
+                          SizedBox(
+                            height: screenSize.height * .05,
+                          ),
+                          Text(
+                            "Oh, the Places You'll Go!",
+                            style: TextStyle(
+                              fontSize: screenSize.height * 0.10,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFF243949),
+                              fontFamily: 'Electrolize',
+                            ),
+                          ),
+                          SizedBox(
+                            height: screenSize.height * .03,
+                          ),
                           // TODO: Featured
                           // FeaturedHeading(
                           //   screenSize: screenSize,
@@ -70,7 +85,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   ],
                 ),
               ],
-            )
+            ),
+            CarouselMine(),
           ],
         ),
       ),

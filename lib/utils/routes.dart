@@ -5,7 +5,9 @@ import 'package:myflutterwebsite/screens/welcome_screen.dart';
 
 class Routes {
   static String getInitialRoute() {
-    return WelcomeScreen.welcomeScreenRoute;
+    // TODO: Change this
+    // return WelcomeScreen.welcomeScreenRoute;
+    return BucketListPage.bucketListRoute;
   }
 
   static List<GetPage> getRoutes() {
