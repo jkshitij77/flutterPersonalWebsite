@@ -32,6 +32,10 @@ dependencies:
   animated_text: ^1.0.2
   native_pdf_renderer: ^2.3.2
   carousel_slider: ^2.3.1
+  awesome_dialog: ^1.2.1
+  font_awesome_flutter: ^8.10.0
+  url_launcher: ^5.7.10
+
 
 dev_dependencies:
   flutter_test:

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:myflutterwebsite/screens/temporary.dart';
 import 'package:get/get.dart';
+import 'package:myflutterwebsite/utils/responsive_web.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class TopBar extends StatefulWidget {
   final screenSize;
@@ -34,9 +37,7 @@ class _TopBarState extends State<TopBar> {
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
-    _opacity = _scrollPosition < screenSize.height * 0.40
-        ? 1
-        : 0;
+    _opacity = _scrollPosition < screenSize.height * 0.40 ? 1 : 0;
     return Container(
       child: Padding(
         padding: EdgeInsets.symmetric(
@@ -61,16 +62,15 @@ class _TopBarState extends State<TopBar> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                      "KSHITIJ",
-                      style: TextStyle(
-                        fontSize: widget.screenSize.height * 0.10,
-                        fontWeight: FontWeight.bold,
-                        color: isHovering[0]
-                            ? Color(0xFF243949)
-                            : Color(0xFF445969),
-                        fontFamily: 'Electrolize',
-                      ),
+                    "KSHITIJ",
+                    style: TextStyle(
+                      fontSize: widget.screenSize.height * 0.10,
+                      fontWeight: FontWeight.bold,
+                      color:
+                          isHovering[0] ? Color(0xFF243949) : Color(0xFF445969),
+                      fontFamily: 'Electrolize',
                     ),
+                  ),
                   Text(
                     "JAIN",
                     style: TextStyle(
@@ -84,22 +84,86 @@ class _TopBarState extends State<TopBar> {
                 ],
               ),
             ),
-            InkWell(
-              onTap: () {
-                Get.to(TemporaryPage());
-              },
-              onHover: (hovering) {
-                setState(() {
-                  hovering ? isHovering[1] = true : isHovering[1] = false;
-                });
-              },
-              child: Text(
-                "Contact me",
-                style: TextStyle(
-                  fontSize: widget.screenSize.height * .04,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Electrolize',
-                  color: isHovering[1] ? Color(0xFF243949) : Color(0xFF445969),
+            Visibility(
+              visible: !ResponsiveWidget.isSmallScreen(context),
+              child: InkWell(
+                onTap: () {
+                  // Get.to(TemporaryPage());
+                  print("DUDE Dialog");
+                  showModalBottomSheet<void>(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return Container(
+                        height: screenSize.height,
+                        color: Color(0xFF263238),
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              Text('Reach me at Kshitij.jain.23@dartmouth.edu'),
+                              Text('Call me at bluh bluh'),
+                              IconButton(
+                                color: Colors.white,
+                                iconSize: screenSize.height * .07,
+                                icon: FaIcon(FontAwesomeIcons.linkedin),
+                                onPressed: () async {
+                                  if (await canLaunch(
+                                      'https://www.linkedin.com/in/kshitij-jain-1a57b5165/')) {
+                                    await launch(
+                                        'https://www.linkedin.com/in/kshitij-jain-1a57b5165/');
+                                  }
+                                },
+                              ),
+                              IconButton(
+                                color: Colors.white,
+                                iconSize: screenSize.height * .07,
+                                icon: FaIcon(FontAwesomeIcons.github),
+                                onPressed: () async {
+                                  if (await canLaunch(
+                                      'https://github.com/jkshitij77')) {
+                                    await launch(
+                                        'https://github.com/jkshitij77');
+                                  }
+                                },
+                              ),
+                              IconButton(
+                                color: Colors.white,
+                                iconSize: screenSize.height * .07,
+                                icon: FaIcon(FontAwesomeIcons.facebook),
+                                onPressed: () async {
+                                  if (await canLaunch(
+                                      'https://www.facebook.com/kshitij.jain.359/')) {
+                                    await launch(
+                                        'https://www.facebook.com/kshitij.jain.359/');
+                                  }
+                                },
+                              ),
+                              /* ElevatedButton(
+                                child: Text('Go back'),
+                                onPressed: () => Navigator.pop(context),
+                              ), */
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  );
+                },
+                onHover: (hovering) {
+                  setState(() {
+                    hovering ? isHovering[1] = true : isHovering[1] = false;
+                  });
+                },
+                child: Text(
+                  "Contact me",
+                  style: TextStyle(
+                    fontSize: widget.screenSize.height * .04,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Electrolize',
+                    color:
+                        isHovering[1] ? Color(0xFF243949) : Color(0xFF445969),
+                  ),
                 ),
               ),
             ),

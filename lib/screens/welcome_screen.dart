@@ -44,11 +44,16 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   child: SizedBox(
                     height: screenSize.height * 0.52,
                     width: screenSize.width,
-                    child: Image.asset(
+                    child: Image.network(
+                        'https://github.com/jkshitij77/flutterwebsite/blob/master/Assets/bg.jpeg?raw=true', fit: BoxFit.cover,),
+                    // child:Image.network('https://github.com/jkshitij77/flutterwebsite/blob/master/Assets/bg.jpeg', fit: BoxFit.cover,),
+                    // https://drive.google.com/file/d/1S5Z8zTZz_DE9TcwN7wVML5Fdx_4EEKu7/view?usp=sharing
+                    // child: NetworkImage('https://drive.google.com/file/d/1S5Z8zTZz_DE9TcwN7wVML5Fdx_4EEKu7/view?usp=sharing', fit,),
+                    /* child: Image.asset(
                       // TODO: Change the image
                       'assets/bg.jpeg',
                       fit: BoxFit.cover,
-                    ),
+                    ), */
                   ),
                 ),
                 Column(

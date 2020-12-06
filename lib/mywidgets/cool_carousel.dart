@@ -11,11 +11,21 @@ class CarouselMine extends StatefulWidget {
 class _CarouselMineState extends State<CarouselMine> {
   int _current = 0;
   final CarouselController _controller = CarouselController();
-  final List<String> imagesForCarousel = [
+  /* final List<String> imagesForCarousel = [
     'assets/americac.jpg',
     'assets/asiac.jpg',
     'assets/europec.jpg',
+  ]; */
+
+  final List<String> imagesForCarousel = [
+    'https://github.com/jkshitij77/flutterwebsite/blob/master/Assets/americac.jpg?raw=true',
+    'https://github.com/jkshitij77/flutterwebsite/blob/master/Assets/asiac.jpg?raw=true',
+    'https://github.com/jkshitij77/flutterwebsite/blob/master/Assets/europec.jpg?raw=true',
   ];
+
+  // https://github.com/jkshitij77/flutterwebsite/blob/master/Assets/americac.jpg?raw=true
+  // https://github.com/jkshitij77/flutterwebsite/blob/master/Assets/asiac.jpg?raw=true
+  // https://github.com/jkshitij77/flutterwebsite/blob/master/Assets/europec.jpg?raw=true
 
   final List<String> stringsForCarousel = [
     'America',
@@ -31,7 +41,7 @@ class _CarouselMineState extends State<CarouselMine> {
         .map(
           (e) => ClipRRect(
             borderRadius: BorderRadius.circular(8.0),
-            child: Image.asset(
+            child: Image.network(
               e,
               fit: BoxFit.cover,
             ),
