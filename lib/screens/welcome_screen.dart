@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myflutterwebsite/mywidgets/cool_carousel.dart';
 import 'package:myflutterwebsite/mywidgets/floating_bar.dart';
 import 'package:myflutterwebsite/mywidgets/top_bar.dart';
+import 'package:myflutterwebsite/utils/responsive_web.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static final welcomeScreenRoute = '/';
@@ -45,7 +46,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     height: screenSize.height * 0.52,
                     width: screenSize.width,
                     child: Image.network(
-                        'https://github.com/jkshitij77/flutterwebsite/blob/master/Assets/bg.jpeg?raw=true', fit: BoxFit.cover,),
+                      'https://github.com/jkshitij77/flutterwebsite/blob/master/Assets/bg.jpeg?raw=true',
+                      fit: BoxFit.cover,
+                    ),
                     // child:Image.network('https://github.com/jkshitij77/flutterwebsite/blob/master/Assets/bg.jpeg', fit: BoxFit.cover,),
                     // https://drive.google.com/file/d/1S5Z8zTZz_DE9TcwN7wVML5Fdx_4EEKu7/view?usp=sharing
                     // child: NetworkImage('https://drive.google.com/file/d/1S5Z8zTZz_DE9TcwN7wVML5Fdx_4EEKu7/view?usp=sharing', fit,),
@@ -92,11 +95,36 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               ],
             ),
             CarouselMine(),
+            Visibility(
+              visible: ResponsiveWidget.isSmallScreen(context),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: screenSize.height * .05,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      // TODO: Route to the Bottom Sheet Modal thing
+                    },
+                    child: Text(
+                      'Contact me',
+                      style: TextStyle(
+                        fontSize: screenSize.width * .1,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Electrolize',
+                        color: Color(0xFF243949),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: screenSize.height * .05,
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 }
-
-// TODO: WORK resume interests and bucket list

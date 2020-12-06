@@ -101,43 +101,99 @@ class _TopBarState extends State<TopBar> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             mainAxisSize: MainAxisSize.min,
                             children: <Widget>[
-                              Text('Reach me at Kshitij.jain.23@dartmouth.edu'),
-                              Text('Call me at bluh bluh'),
-                              IconButton(
-                                color: Colors.white,
-                                iconSize: screenSize.height * .07,
-                                icon: FaIcon(FontAwesomeIcons.linkedin),
-                                onPressed: () async {
-                                  if (await canLaunch(
-                                      'https://www.linkedin.com/in/kshitij-jain-1a57b5165/')) {
-                                    await launch(
-                                        'https://www.linkedin.com/in/kshitij-jain-1a57b5165/');
-                                  }
-                                },
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Reach me at ',
+                                    style: TextStyle(
+                                      fontSize: screenSize.height * .05,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  InkWell(
+                                    onTap: (){
+                                      print("MY DUDES send an email");
+                                    },
+                                    child: SelectableText(
+                                      'Kshitij.jain.23@dartmouth.edu',
+                                      style: TextStyle(
+                                        fontSize: screenSize.height * .05,
+                                        color: Colors.lightBlueAccent,
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
-                              IconButton(
-                                color: Colors.white,
-                                iconSize: screenSize.height * .07,
-                                icon: FaIcon(FontAwesomeIcons.github),
-                                onPressed: () async {
-                                  if (await canLaunch(
-                                      'https://github.com/jkshitij77')) {
-                                    await launch(
-                                        'https://github.com/jkshitij77');
-                                  }
-                                },
+                              SizedBox(height:20),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Call me at ',
+                                    style: TextStyle(
+                                      fontSize: screenSize.height * .05,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  InkWell(
+                                    onTap: (){
+                                      print("MY DUDES Call me");
+                                      launch("tel://6036781223");
+                                    },
+                                    child: Text(
+                                      '+1 603-678-1223',
+                                      style: TextStyle(
+                                        fontSize: screenSize.height * .05,
+                                        color: Colors.lightBlueAccent,
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
-                              IconButton(
-                                color: Colors.white,
-                                iconSize: screenSize.height * .07,
-                                icon: FaIcon(FontAwesomeIcons.facebook),
-                                onPressed: () async {
-                                  if (await canLaunch(
-                                      'https://www.facebook.com/kshitij.jain.359/')) {
-                                    await launch(
-                                        'https://www.facebook.com/kshitij.jain.359/');
-                                  }
-                                },
+                              SizedBox(height:20),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  IconButton(
+                                    color: Colors.white,
+                                    iconSize: screenSize.height * .07,
+                                    icon: FaIcon(FontAwesomeIcons.linkedin),
+                                    onPressed: () async {
+                                      if (await canLaunch(
+                                          'https://www.linkedin.com/in/kshitij-jain-1a57b5165/')) {
+                                        await launch(
+                                            'https://www.linkedin.com/in/kshitij-jain-1a57b5165/');
+                                      }
+                                    },
+                                  ),
+                                  SizedBox(width: screenSize.width * .03),
+                                  IconButton(
+                                    color: Colors.white,
+                                    iconSize: screenSize.height * .07,
+                                    icon: FaIcon(FontAwesomeIcons.github),
+                                    onPressed: () async {
+                                      if (await canLaunch(
+                                          'https://github.com/jkshitij77')) {
+                                        await launch(
+                                            'https://github.com/jkshitij77');
+                                      }
+                                    },
+                                  ),
+                                  SizedBox(width: screenSize.width * .03),
+                                  IconButton(
+                                    color: Colors.white,
+                                    iconSize: screenSize.height * .07,
+                                    icon: FaIcon(FontAwesomeIcons.facebook),
+                                    onPressed: () async {
+                                      if (await canLaunch(
+                                          'https://www.facebook.com/kshitij.jain.359/')) {
+                                        await launch(
+                                            'https://www.facebook.com/kshitij.jain.359/');
+                                      }
+                                    },
+                                  ),
+                                ],
                               ),
                               /* ElevatedButton(
                                 child: Text('Go back'),

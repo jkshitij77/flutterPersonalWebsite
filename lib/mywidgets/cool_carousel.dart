@@ -90,7 +90,7 @@ class _CarouselMineState extends State<CarouselMine> {
             child: Text(
               stringsForCarousel[_current],
               style: TextStyle(
-                fontSize: screenSize.height * 0.10,
+                fontSize: screenSize.height * 0.09,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
                 fontFamily: 'Electrolize',
