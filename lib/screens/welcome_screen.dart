@@ -3,6 +3,7 @@ import 'package:myflutterwebsite/mywidgets/cool_carousel.dart';
 import 'package:myflutterwebsite/mywidgets/floating_bar.dart';
 import 'package:myflutterwebsite/mywidgets/top_bar.dart';
 import 'package:myflutterwebsite/utils/responsive_web.dart';
+import 'package:myflutterwebsite/mywidgets/dialog.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static final welcomeScreenRoute = '/';
@@ -49,14 +50,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       'https://github.com/jkshitij77/flutterwebsite/blob/master/Assets/bg.jpeg?raw=true',
                       fit: BoxFit.cover,
                     ),
-                    // child:Image.network('https://github.com/jkshitij77/flutterwebsite/blob/master/Assets/bg.jpeg', fit: BoxFit.cover,),
-                    // https://drive.google.com/file/d/1S5Z8zTZz_DE9TcwN7wVML5Fdx_4EEKu7/view?usp=sharing
-                    // child: NetworkImage('https://drive.google.com/file/d/1S5Z8zTZz_DE9TcwN7wVML5Fdx_4EEKu7/view?usp=sharing', fit,),
-                    /* child: Image.asset(
-                      // TODO: Change the image
-                      'assets/bg.jpeg',
-                      fit: BoxFit.cover,
-                    ), */
                   ),
                 ),
                 Column(
@@ -104,7 +97,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   ),
                   InkWell(
                     onTap: () {
-                      // TODO: Route to the Bottom Sheet Modal thing
+                      MyDialog.myContactModal(context, screenSize, .035);
                     },
                     child: Text(
                       'Contact me',

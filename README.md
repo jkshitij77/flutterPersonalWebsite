@@ -1,12 +1,11 @@
 Hi this is my personal website
 This is my first Flutter Web project
 
-TODO: Make the floating action bar be in the right place
-Find a better picture for background
-Make the design for the bucket list page
-Think what other pages I want
-Implement footer in welcome screen
+Life as chapters of books
 Make the pdf reader work
+The main things is responsiveness right now
+My name should disappear sometime
+Fix text overflow using regex in bucket list page
 
 
 Put in better animations for text

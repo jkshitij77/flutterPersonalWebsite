@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myflutterwebsite/utils/responsive_web.dart';
 // import 'package:animated_text/animated_text.dart';
 
 class BucketListPage extends StatelessWidget {
@@ -110,7 +111,8 @@ class BucketListPage extends StatelessWidget {
               style: TextStyle(
                 fontFamily: 'Electrolize',
                 color: Colors.white,
-                fontSize: 20,
+                // TODO: Fix the font size
+                fontSize: 15,
               ),
             ),
           ),
