@@ -1,11 +1,12 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:myflutterwebsite/screens/life_as_book.dart';
 import 'package:myflutterwebsite/screens/professional.dart';
 import 'package:myflutterwebsite/screens/temporary.dart';
 import 'package:myflutterwebsite/utils/responsive_web.dart';
 import 'package:myflutterwebsite/screens/bucket_list_page.dart';
 import 'package:get/get.dart';
-// import 'package:native_pdf_renderer/native_pdf_renderer.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class FloatingBarMidWayThroughPage extends StatefulWidget {
   final screenSize;
@@ -49,11 +50,21 @@ class _FloatingBarMidWayThroughPageState
         onTap: () async {
           if (items[i] == 'Bucket List')
             Get.to(BucketListPage());
-          // TODO: else if (items[i] == 'Professional') {
-          else {
-            Get.to(TemporaryPage());
+          else if (items[i] == 'My life') {
+            Get.to((BookChapterScreen()));
+          } else {
+            // Get.to(TemporaryPage());
             // TODO: Change this to professional
             // Get.to(ProfessionalPage());
+
+            const url = 'https://jkshitij77.github.io/flutterwebsite/Assets/Kshitij%20Resume%20Jefferies.pdf';
+            if (await canLaunch(url)) {
+              await launch(url);
+            } else {
+              throw 'Could not launch $url';
+            }
+
+            // https://github.com/jkshitij77/flutterwebsite/blob/master/Assets/Kshitij%20Resume%20Jefferies.pdf
             // await PdfDocument.openAsset('Assets/Kshitij Resume Jefferies.pdf');
           }
         },

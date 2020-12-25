@@ -12,6 +12,7 @@ class BucketListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     screenSize = MediaQuery.of(context).size;
+    bool isSmall = ResponsiveWidget.isSmallScreen(context);
     var widthMultiplier = screenSize.width/100;
 
     return Scaffold(
@@ -53,43 +54,54 @@ class BucketListPage extends StatelessWidget {
               // Column 1 starts here
               Column(
                 children: [
-                  getCardWidget("Paint a starry night"),
-                  getCardWidget("Work on a farm"),
-                  getCardWidget("Write my own manga"),
-                  getCardWidget("Learn surfing"),
-                  getCardWidget("Dig a grave"),
-                  getCardWidget("Learn how to fix a car"),
-                  getCardWidget("Learn to spit fire"),
-                  getCardWidget("Write and perform a song"),
-                  getCardWidget("Have Something Named After Me"),
+                  getCardWidget(isSmall, "Paint a starry night"),
+                  getCardWidget(isSmall, "Work on a farm"),
+                  getCardWidget(isSmall, "Write my own manga"),
+                  getCardWidget(isSmall, "Learn surfing"),
+                  getCardWidget(isSmall, "Dig a grave"),
+                  getCardWidget(isSmall, "Learn how to fix a car"),
+                  getCardWidget(isSmall, "Learn to spit fire"),
+                  getCardWidget(isSmall, "Write and perform a song"),
+                  getCardWidget(isSmall, "Have Something Named After Me"),
+                  getCardWidget(isSmall, "Ride the Trans Siberian railroad"),
+                  getCardWidget(isSmall, "Camp under the stars"),
+                  getCardWidget(isSmall, "Make Jay and Shit's compilation of high five broments to the public"),
                 ],
               ),
               SizedBox(width: widthMultiplier*5),
               // Column 2 starts here
               Column(
                 children: [
-                  getCardWidget("Learn watch making"),
-                  getCardWidget("Camp in a rainforest"),
-                  getCardWidget("Sing on a stage before a huge crowd"),
-                  getCardWidget("Star in a movie"),
-                  getCardWidget("Sail across an ocean"),
-                  getCardWidget("Get full arm tattoos"),
-                  getCardWidget("Save a life"),
-                  getCardWidget("Visit a death row inmate"),
+                  getCardWidget(isSmall, "Learn watch making"),
+                  getCardWidget(isSmall, "Camp in a rainforest"),
+                  getCardWidget(isSmall, "Sing on a stage before a huge crowd"),
+                  getCardWidget(isSmall, "Star in a movie"),
+                  getCardWidget(isSmall, "Sail across an ocean"),
+                  getCardWidget(isSmall, "Get full arm tattoos"),
+                  getCardWidget(isSmall, "Save a life"),
+                  getCardWidget(isSmall, "Visit a death row inmate"),
+                  getCardWidget(isSmall, "Go on a 2am sledding date"),
+                  getCardWidget(isSmall, "The Kshit-Makky special"),
+                  getCardWidget(isSmall, "Go contradancing in Norwich"),
                 ],
               ),
               SizedBox(width: widthMultiplier*5),
               // Column 3 starts here
               Column(
                 children: [
-                  getCardWidget("Play an actual rugby match"),
-                  getCardWidget("Learn how to use a switchblade"),
-                  getCardWidget("Make a music video"),
-                  getCardWidget("Walk across an entire country"),
-                  getCardWidget("Buy a sweet Cabana"),
-                  getCardWidget("Pose nude for art"),
-                  getCardWidget("Live with the monks for a month"),
-                  getCardWidget("Dance in a flash mob"),
+                  getCardWidget(isSmall, "Play an actual rugby match"),
+                  getCardWidget(isSmall, "Learn how to use a switchblade"),
+                  getCardWidget(isSmall, "Make a music video"),
+                  getCardWidget(isSmall, "Walk across an entire country"),
+                  getCardWidget(isSmall, "Buy a sweet Cabana"),
+                  getCardWidget(isSmall, "Pose nude for art"),
+                  getCardWidget(isSmall, "Live with the monks for a month"),
+                  getCardWidget(isSmall, "Dance in a flash mob"),
+                  getCardWidget(isSmall, "Burning man festival"),
+                  getCardWidget(isSmall, "Grow out beard for a year"),
+                  getCardWidget(isSmall, "Hveravellir Hot spring"),
+                  getCardWidget(isSmall, "Visit Tons in Ukraine"),
+                  
                 ],
               ),
             ],
@@ -99,12 +111,12 @@ class BucketListPage extends StatelessWidget {
     );
   }
 
-  Widget getCardWidget(String string) {
+  Widget getCardWidget(bool isSmall, String string) {
     return Column(
       children: [
         Container(
           padding: EdgeInsets.all(24),
-          width: screenSize.width * .25,
+          width: isSmall? 15 : screenSize.width * .25,
           child: Center(
             child: Text(
               string,
