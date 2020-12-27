@@ -4,17 +4,12 @@ This is my first Flutter Web project
 
 
 SUPER NECESSARY
-Life as chapters of books
-Make the pdf reader work
-The main things is responsiveness right now
 My name should disappear sometime
-Fix text overflow using regex in bucket list page
-
-
-
-MINOR CHANGES
+The main thing is responsiveness right now
+Life as chapters of books
 Put in better animations for text
 Find nice colors for the website and change theme
+<!-- Fix text overflow using regex in bucket list page -->
 
 
 

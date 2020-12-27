@@ -57,15 +57,13 @@ class _FloatingBarMidWayThroughPageState
             // TODO: Change this to professional
             // Get.to(ProfessionalPage());
 
-            const url = 'https://jkshitij77.github.io/flutterwebsite/Assets/Kshitij%20Resume%20Jefferies.pdf';
+            const url =
+                'https://jkshitij77.github.io/flutterwebsite/Assets/sample.pdf';
             if (await canLaunch(url)) {
               await launch(url);
             } else {
               throw 'Could not launch $url';
             }
-
-            // https://github.com/jkshitij77/flutterwebsite/blob/master/Assets/Kshitij%20Resume%20Jefferies.pdf
-            // await PdfDocument.openAsset('Assets/Kshitij Resume Jefferies.pdf');
           }
         },
         onHover: (hovering) {
@@ -141,11 +139,22 @@ class _FloatingBarMidWayThroughPageState
                                 InkWell(
                                   splashColor: Colors.transparent,
                                   hoverColor: Colors.transparent,
-                                  onTap: () {
+                                  onTap: () async {
                                     if (items[pageIndex] == 'Bucket List')
                                       Get.to(BucketListPage(
                                         screenSize: widget.screenSize,
                                       ));
+                                    else if (items[pageIndex] == 'My life') {
+                                      Get.to((BookChapterScreen()));
+                                    } else {
+                                      const url =
+                                          'https://jkshitij77.github.io/flutterwebsite/Assets/sample.pdf';
+                                      if (await canLaunch(url)) {
+                                        await launch(url);
+                                      } else {
+                                        throw 'Could not launch $url';
+                                      }
+                                    }
                                   },
                                   child: Text(
                                     items[pageIndex],
@@ -181,10 +190,3 @@ class _FloatingBarMidWayThroughPageState
     );
   }
 }
-
-// TODO: Render my resume with the resume button
-//  Show my achievements and shit
-//  final document = await PdfDocument.openAsset('assets/sample.pdf');
-//  final page = await document.getPage(1);
-//  final pageImage = await page.render(width: page.width, height: page.height);
-//  await page.close();

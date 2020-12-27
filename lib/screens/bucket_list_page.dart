@@ -116,7 +116,7 @@ class BucketListPage extends StatelessWidget {
       children: [
         Container(
           padding: EdgeInsets.all(24),
-          width: isSmall? 15 : screenSize.width * .25,
+          width: screenSize.width * .25,
           child: Center(
             child: Text(
               string,
@@ -124,7 +124,7 @@ class BucketListPage extends StatelessWidget {
                 fontFamily: 'Electrolize',
                 color: Colors.white,
                 // TODO: Fix the font size
-                fontSize: 15,
+                fontSize: isSmall? 10 : 15,
               ),
             ),
           ),
