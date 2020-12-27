@@ -13,12 +13,25 @@ class WelcomeScreen extends StatefulWidget {
 }
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
+  ScrollController _scrollController;
+  double _scrollPosition = 0;
+  double _opacity = 0;
+
+
+  _scrollListener() {
+    setState(() {
+      _scrollPosition = _scrollController.position.pixels;
+    });
+  }
+
   var screenSize;
   var heightMultiplier;
   var widthMultiplier;
 
   @override
   void initState() {
+    _scrollController = ScrollController();
+    _scrollController.addListener(_scrollListener);
     super.initState();
   }
 
@@ -28,15 +41,25 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     heightMultiplier = screenSize.height / 100;
     widthMultiplier = screenSize.width / 100;
 
+// TODO: Check if this works
+    _opacity = _scrollPosition < screenSize.height * 0.40
+        ? (screenSize.height * 0.40 - _scrollPosition) / (screenSize.height * 0.40)
+        : 0;
+    print("_opacity");
+    print(_scrollPosition);
+
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: PreferredSize(
         preferredSize: Size(screenSize.width, 1000),
         child: TopBar(
           screenSize: screenSize,
+          opacity: _opacity,
         ),
       ),
       body: SingleChildScrollView(
+        // TODO: Check
+        controller: _scrollController,
         physics: ClampingScrollPhysics(),
         child: Column(
           children: [

@@ -6,8 +6,9 @@ import 'dialog.dart';
 
 class TopBar extends StatefulWidget {
   final screenSize;
+  final double opacity;
 
-  const TopBar({Key key, @required this.screenSize}) : super(key: key);
+  const TopBar({Key key, @required this.screenSize, this.opacity}) : super(key: key);
 
   @override
   _TopBarState createState() => _TopBarState();
@@ -15,7 +16,7 @@ class TopBar extends StatefulWidget {
 
 class _TopBarState extends State<TopBar> {
   final List isHovering = [false, false];
-  ScrollController _scrollController;
+  /* ScrollController _scrollController;
   double _scrollPosition = 0;
   double _opacity = 0;
 
@@ -23,12 +24,12 @@ class _TopBarState extends State<TopBar> {
     setState(() {
       _scrollPosition = _scrollController.position.pixels;
     });
-  }
+  } */
 
   @override
   void initState() {
-    _scrollController = ScrollController();
-    _scrollController.addListener(_scrollListener);
+    // _scrollController = ScrollController();
+    // _scrollController.addListener(_scrollListener);
     // TODO: Is the above line fine?
     super.initState();
   }
@@ -36,8 +37,10 @@ class _TopBarState extends State<TopBar> {
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
-    _opacity = _scrollPosition < screenSize.height * 0.40 ? 1 : 0;
+    // _opacity = _scrollPosition < screenSize.height * 0.40 ? 1 : 0;
     return Container(
+      // TODO: WTF
+      // color: Colors.black.withOpacity(widget.opacity),
       child: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: 40,
@@ -53,6 +56,7 @@ class _TopBarState extends State<TopBar> {
               },
               onHover: (hovering) {
                 setState(() {
+                  print(widget.opacity);
                   hovering ? isHovering[0] = true : isHovering[0] = false;
                 });
               },
@@ -66,7 +70,7 @@ class _TopBarState extends State<TopBar> {
                       fontSize: widget.screenSize.height * 0.10,
                       fontWeight: FontWeight.bold,
                       color:
-                          isHovering[0] ? Color(0xFF243949) : Color(0xFF445969),
+                          isHovering[0] ? Color(0xFF243949).withOpacity(widget.opacity) : Color(0xFF445969).withOpacity(widget.opacity),
                       fontFamily: 'Electrolize',
                     ),
                   ),
@@ -76,7 +80,7 @@ class _TopBarState extends State<TopBar> {
                       fontSize: widget.screenSize.height * 0.10,
                       fontWeight: FontWeight.bold,
                       color:
-                          isHovering[0] ? Color(0xFF243949) : Color(0xFF445969),
+                          isHovering[0] ? Color(0xFF243949).withOpacity(widget.opacity) : Color(0xFF445969).withOpacity(widget.opacity),
                       fontFamily: 'Electrolize',
                     ),
                   ),
@@ -93,6 +97,7 @@ class _TopBarState extends State<TopBar> {
                 },
                 onHover: (hovering) {
                   setState(() {
+                    // print(opacity);
                     hovering ? isHovering[1] = true : isHovering[1] = false;
                   });
                 },
