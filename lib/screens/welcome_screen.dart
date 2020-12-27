@@ -41,7 +41,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     heightMultiplier = screenSize.height / 100;
     widthMultiplier = screenSize.width / 100;
 
-// TODO: Check if this works
     _opacity = _scrollPosition < screenSize.height * 0.40
         ? (screenSize.height * 0.40 - _scrollPosition) / (screenSize.height * 0.40)
         : 0;
@@ -58,7 +57,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         ),
       ),
       body: SingleChildScrollView(
-        // TODO: Check
         controller: _scrollController,
         physics: ClampingScrollPhysics(),
         child: Column(

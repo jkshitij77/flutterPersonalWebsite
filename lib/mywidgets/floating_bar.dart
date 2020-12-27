@@ -2,9 +2,9 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:myflutterwebsite/screens/life_as_book.dart';
 import 'package:myflutterwebsite/screens/professional.dart';
-import 'package:myflutterwebsite/screens/temporary.dart';
 import 'package:myflutterwebsite/utils/responsive_web.dart';
 import 'package:myflutterwebsite/screens/bucket_list_page.dart';
+import 'package:myflutterwebsite/screens/temporary.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -41,8 +41,8 @@ class _FloatingBarMidWayThroughPageState
     rowElements.clear();
 
     for (int i = 0; i < items.length; i++) {
-      String s = items[i];
-      IconData iconData = icons[i];
+      // String s = items[i];
+      // IconData iconData = icons[i];
 
       Widget bro = InkWell(
         splashColor: Colors.transparent,
@@ -145,7 +145,8 @@ class _FloatingBarMidWayThroughPageState
                                         screenSize: widget.screenSize,
                                       ));
                                     else if (items[pageIndex] == 'My life') {
-                                      Get.to((BookChapterScreen()));
+                                      Get.to(TemporaryPage());
+                                      // Get.to((BookChapterScreen()));
                                     } else {
                                       const url =
                                           'https://jkshitij77.github.io/flutterwebsite/Assets/sample.pdf';

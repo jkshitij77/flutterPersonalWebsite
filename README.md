@@ -4,13 +4,7 @@ This is my first Flutter Web project
 
 
 SUPER NECESSARY
-My name should disappear sometime
-The main thing is responsiveness right now
-Life as chapters of books
-Put in better animations for text
-Find nice colors for the website and change theme
-<!-- Fix text overflow using regex in bucket list page -->
-
+Need to change book page for phone
 
 
 # myflutterwebsite

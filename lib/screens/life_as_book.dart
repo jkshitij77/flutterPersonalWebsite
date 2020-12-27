@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flip_card/flip_card.dart';
+import 'package:myflutterwebsite/utils/responsive_web.dart';
 // import 'package:page_turn/page_turn.dart';
 // import 'text_page.dart';
+// import 'package:flip_card/flip_card.dart';
 
 class BookChapterScreen extends StatefulWidget {
   var screenSize;
@@ -19,7 +20,7 @@ class _BookChapterScreenState extends State<BookChapterScreen> {
     int start = 1;
     var screenSize = MediaQuery.of(context).size;
     var hm = screenSize.height/100;
-    var wm = screenSize.width/100;
+    bool isSmall = ResponsiveWidget.isSmallScreen(context);
 
     return Scaffold(
       backgroundColor: Colors.blueGrey[600],
@@ -49,7 +50,7 @@ class _BookChapterScreenState extends State<BookChapterScreen> {
                       style: TextStyle(
                         // decoration: TextDecoration.underline,
                         color: Colors.black,
-                        fontSize: hm*10,
+                        fontSize: isSmall? 25 : hm*10,
                         fontFamily: 'TNR'
                       ),
                     ),

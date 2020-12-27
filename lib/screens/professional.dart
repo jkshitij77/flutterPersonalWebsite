@@ -25,7 +25,6 @@ class _ProfessionalPageState extends State<ProfessionalPage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // TOP HEADING
-              // TODO: Add my name and info
               Text(
                 'Kshitij Jain',
                 style: TextStyle(

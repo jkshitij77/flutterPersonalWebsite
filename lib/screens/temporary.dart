@@ -12,7 +12,7 @@ class TemporaryPage extends StatelessWidget {
             "This is still a work in progress",
             style: TextStyle(
               color: Colors.black,
-              fontSize: MediaQuery.of(context).size.height / 4,
+              fontSize: MediaQuery.of(context).size.height / 8,
               fontFamily: 'Electrolize'
             ),
           ),

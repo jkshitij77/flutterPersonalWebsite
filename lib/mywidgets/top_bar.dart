@@ -16,31 +16,16 @@ class TopBar extends StatefulWidget {
 
 class _TopBarState extends State<TopBar> {
   final List isHovering = [false, false];
-  /* ScrollController _scrollController;
-  double _scrollPosition = 0;
-  double _opacity = 0;
-
-  _scrollListener() {
-    setState(() {
-      _scrollPosition = _scrollController.position.pixels;
-    });
-  } */
 
   @override
   void initState() {
-    // _scrollController = ScrollController();
-    // _scrollController.addListener(_scrollListener);
-    // TODO: Is the above line fine?
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
-    // _opacity = _scrollPosition < screenSize.height * 0.40 ? 1 : 0;
     return Container(
-      // TODO: WTF
-      // color: Colors.black.withOpacity(widget.opacity),
       child: Padding(
         padding: EdgeInsets.symmetric(
           horizontal: 40,
@@ -97,7 +82,6 @@ class _TopBarState extends State<TopBar> {
                 },
                 onHover: (hovering) {
                   setState(() {
-                    // print(opacity);
                     hovering ? isHovering[1] = true : isHovering[1] = false;
                   });
                 },
